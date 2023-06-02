@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrismApp1.Views.ViewB">
+
+  <VerticalStackLayout>
+    <Label Text="ViewName = ViewB" />
+    <Label Text="{Binding ViewModelName, StringFormat='{}ViewModelName = {0}'}" />
+    <Label Text="{Binding NavParameter, StringFormat='{}NavigationParameter = {0}'}" />
+  </VerticalStackLayout>
+</ContentView>
