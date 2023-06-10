@@ -1,6 +1,6 @@
 ﻿namespace PrismApp1.ViewModels;
 
-public class ViewBViewModel : BindableBase, INavigatedAware
+public class ViewBViewModel : BindableBase, IRegionAware
 {
     private string _viewModelName;
     private string _navParameter;
@@ -22,12 +22,17 @@ public class ViewBViewModel : BindableBase, INavigatedAware
         set => SetProperty(ref _navParameter, value);
     }
 
-    public void OnNavigatedFrom(INavigationParameters parameters)
+    public bool IsNavigationTarget(INavigationContext navigationContext)
+    {
+        return true;
+    }
+
+    public void OnNavigatedFrom(INavigationContext navigationContext)
     {
     }
 
-    public void OnNavigatedTo(INavigationParameters parameters)
+    public void OnNavigatedTo(INavigationContext navigationContext)
     {
-        this.NavParameter = (string)parameters["NavParameter"];
+        this.NavParameter = (string)navigationContext.Parameters["NavParameter"];
     }
 }
